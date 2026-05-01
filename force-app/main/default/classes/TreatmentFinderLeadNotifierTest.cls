@@ -7,7 +7,7 @@ private class TreatmentFinderLeadNotifierTest {
         // 1. Create Account (Practice)
         Account acc = new Account(
             Name = 'Fort Worth',
-            Location_Id__c = '15210'
+            Location_Id__c = '11340'
         );
         insert acc;
 
