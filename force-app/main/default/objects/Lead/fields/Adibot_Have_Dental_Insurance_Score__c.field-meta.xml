@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Adibot_Have_Dental_Insurance_Score__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE( Adibot_Have_Dental_Insurance__c , 
+&apos;Yes&apos;, 2, 
+&apos;No&apos;, 1,
+&apos;Not Sure&apos;, 0,
+0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Archie Bot Have Dental Insurance Score</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

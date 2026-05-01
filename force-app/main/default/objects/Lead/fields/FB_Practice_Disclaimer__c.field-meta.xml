@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FB_Practice_Disclaimer__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE( FB_Practice__r.BillingState,
+&apos;Arizona&apos;, &apos;SERVICES PROVIDED BY AN ARIZONA LICENSED GENERAL DENTISIT. THESE ARE MINIMUM FEES AND CHARGES MAY INCREASE DEPENDING ON THE TREATMENT REQUIRED. THE PATIENT AND ANY OTHER PERSON RESPONSIBLE FOR PAYMENT HAS A RIGHT TO REFUSE TO PAY, CANCEL PAYMENT, OR BE REIMBURSED FOR PAYMENT FOR ANY OTHER SERVICE, EXAMINATION, OR TREATMENT THAT IS PERFORMED AS A RESULT OF AND WITHIN 72 HOURS OF RESPONDING TO THE ADVERTISEMENT FOR THE FREE, DISCOUNTED FEE, OR REDUCED FEE SERVICE, EXAMINATION OR TREATMENT.&apos;,
+&apos;Florida&apos;, &apos;THESE ARE MINIMUM FEES AND CHARGES MAY INCREASE DEPENDING ON THE TREATMENT REQUIRED. THE PATIENT AND ANY OTHER PERSON RESPONSIBLE FOR PAYMENT HAS A RIGHT TO REFUSE TO PAY, CANCEL PAYMENT, OR BE REIMBURSED FOR PAYMENT FOR ANY OTHER SERVICE, EXAMINATION, OR TREATMENT THAT IS PERFORMED AS A RESULT OF AND WITHIN 72 HOURS OF RESPONDING TO THE ADVERTISEMENT FOR THE FREE, DISCOUNTED FEE, OR REDUCED FEE SERVICE, EXAMINATION OR TREATMENT. IL: FEES MAY BE ADJUSTED DUE TO COMPLICATIONS OR UNFORSEEN CIRCUMSTANCES.&apos;,
+&apos;Louisiana&apos;,&apos;THESE ARE MINIMUM FEES AND CHARGES MAY INCREASE DEPENDING ON THE TREATMENT REQUIRED. ALL DENTURES ARE INDIVIDUALY MADE FOR EACH PATIENT.&apos;,
+&apos;Mississippi&apos;,&apos;ADDITIONAL FEES MAY BE INCURRED IN INDIVIDUAL CASES. NO SPECIALTY IS HELD IN THE AREAS LISTED.&apos;,
+&apos;Georgia&apos;,&apos;Offer good only at designated location shown on the coupon. Coupon must be presented when services are provided. Not redeemable for cash and no credits for unused portion of discount. Limit one coupon per person. Cannot be combined with any other coupon, insurance, Medicaid (at participating practices), or discount.&apos; &amp; IF(FB_Practice__r.BillingCity= &apos;Dawsonville&apos;, &apos; DISCOUNT DOES NOT APPLY TO WORK PERFORMED BY ORAL SURGEON.&apos;,&apos;&apos;)
+,&apos;&apos;
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>FB Practice Disclaimer</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Adibot_Total_Score__c</fullName>
+    <externalId>false</externalId>
+    <formula>Adibot_Type_Dental_Treatment_Score__c +
+ Adibot_Have_Dental_Insurance_Score__c +
+ Adibot_Interested_Financing_Options_Scor__c +
+ Adibot_Current_Dental_Insurance_Score__c +
+ Adibot_PreventingSeeking_Treatment_Score__c +
+ Adibot_How_Soon_Tooth_Replacement_Score__c +
+ ArchieBot_Extractions_NDWP_Score__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Archie Bot Total Score</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

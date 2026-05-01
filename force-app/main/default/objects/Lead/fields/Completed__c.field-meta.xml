@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Completed__c</fullName>
+    <formula>(IF(ISBLANK( Practice_Name__c ),0,1) +
+ IF(ISBLANK( Practice_Type__c ),0,1) +
+ IF(ISBLANK( Facility_size__c ),0,1) +
+ IF(ISBLANK( On_site_Lab_Capability__c ),0,1) +
+ IF(ISBLANK( Facility_Number_of_Operatories_Chairs__c ),0,1) +
+ IF(ISBLANK( Doctor_Name_s__c ),0,1) +
+ IF(ISBLANK( No_Of_Dental_Assistants__c ),0,1) +
+ IF(ISBLANK( No_Of_Doctors_Dentists__c ),0,1) +
+ IF(ISBLANK( No_Of_Lab_Techs__c ),0,1) + 
+ IF(ISBLANK( No_Of_Office_Managers__c ),0,1) +
+ IF(ISBLANK( No_Of_Other_Staff__c ),0,1) +
+ IF(ISBLANK( No_Of_Treatment_Coordinators__c ),0,1) +
+ IF(ISBLANK( No_Of_Hygienists__c ),0,1) +
+ IF(ISBLANK( TEXT(Do_you_do_Direct_To_Consumer_Marketing__c) ),0,1) +
+ IF(ISBLANK( TEXT(In_network_with_any_insurance_program__c) ),0,1) +
+ IF(ISBLANK( If_yes_what_insurance_programs__c ),0,1) +
+ IF(ISBLANK( Patient_Referrals__c ),0,1) +
+ IF(ISBLANK( Marketing__c ),0,1) +
+ IF(ISBLANK( Professional_Referrals__c ),0,1) +
+ IF(ISBLANK( Other__c ),0,1) 
+) * 0.05</formula>
+    <label>Completed</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Percent</type>
+</CustomField>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FB_Practice_Discount_Optin__c</fullName>
+    <formula>FB_Practice__r.FB_Discount_Optin__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>FB Practice Discount Optin</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

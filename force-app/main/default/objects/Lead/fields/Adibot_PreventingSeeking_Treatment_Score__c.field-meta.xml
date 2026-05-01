@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Adibot_PreventingSeeking_Treatment_Score__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE( Adibot_Preventing_Seeking_Treatment__c , 
+&apos;Dental Anxiety&apos;, 2, 
+&apos;Cost of Treatment&apos;, 2,
+&apos;Social Acceptance&apos;, 2,
+&apos;Multiple Reasons&apos;, 4,
+&apos;Something Else&apos;, 1,
+0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Archie Bot Preventing Seeking Treatment Score</inlineHelpText>
+    <label>Archie Bot PreventingSeeking Treatment S</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

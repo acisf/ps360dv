@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Broker__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <label>Broker_Deprecated</label>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>Please create a contact if one does not exist. Record type should be &quot;Affiliations&quot; with Type = Broker. If you have already created the contact and it does not appear, please contact your administrator.</errorMessage>
+        <filterItems>
+            <field>Contact.Type__c</field>
+            <operation>equals</operation>
+            <value>Broker</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Contact</referenceTo>
+    <relationshipLabel>Leads</relationshipLabel>
+    <relationshipName>Leads</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

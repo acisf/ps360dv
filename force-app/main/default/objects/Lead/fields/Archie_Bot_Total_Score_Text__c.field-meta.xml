@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Archie_Bot_Total_Score_Text__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(Adibot_Total_Score__c &gt; 13, &quot;HOT&quot;, IF(Adibot_Total_Score__c &gt; 5,&quot;WARM&quot;,&quot;COLD&quot;))</formula>
+    <label>Archie Bot Total Score (Text)</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>
