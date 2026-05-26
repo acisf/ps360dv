@@ -25,6 +25,7 @@ public class TreatmentFinderLeadNotifier {
             AND Lead_Notification_Sent_Date__c = NULL
             AND CreatedDate = YESTERDAY
             AND Location_Id__c IN :PILOT_LOCATION_IDS
+            AND First_Appt_Date__c = NULL
         ];
 
         if (leads.isEmpty()) return;
@@ -82,6 +83,11 @@ public class TreatmentFinderLeadNotifier {
             // Always include the fda default address
             List<String> toAddresses = new List<String>{
                 'fda' + l.Location_Id__c + '@affordabledentures.com'
+            };
+                
+            // BCC me in pilot mode
+            List<String> bccAddresses = new List<String>{
+                'douglas.vann@affordablecare.com'
             };
 
             // Optionally add Practice Contact Role recipients
@@ -144,6 +150,9 @@ public class TreatmentFinderLeadNotifier {
             mail.setSubject(subject);
             mail.setHtmlBody(body);
             mail.setToAddresses(toAddresses);
+            
+            //bcc me in pilot mode
+            mail.setBCCAddresses(bccAddresses);
 
             if (!owea.isEmpty()) {
                 mail.setOrgWideEmailAddressId(owea[0].Id);

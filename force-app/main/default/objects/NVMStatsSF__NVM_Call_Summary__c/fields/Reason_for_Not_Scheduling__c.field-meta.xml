@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reason_for_Not_Scheduling__c</fullName>
+    <label>Reason for Not Scheduling</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>COVID</fullName>
+                <default>false</default>
+                <label>COVID</label>
+            </value>
+            <value>
+                <fullName>Date of first available appointment is too far out</fullName>
+                <default>false</default>
+                <label>Date of first available appointment is too far out</label>
+            </value>
+            <value>
+                <fullName>Need to arrange transportation</fullName>
+                <default>false</default>
+                <label>Need to arrange transportation</label>
+            </value>
+            <value>
+                <fullName>Need to talk to spouse/patient</fullName>
+                <default>false</default>
+                <label>Need to talk to spouse/patient</label>
+            </value>
+            <value>
+                <fullName>Practice doesn&apos;t take caller&apos;s insurance</fullName>
+                <default>false</default>
+                <label>Practice doesn&apos;t take caller&apos;s insurance</label>
+            </value>
+            <value>
+                <fullName>Price shopping</fullName>
+                <default>false</default>
+                <label>Price shopping</label>
+            </value>
+            <value>
+                <fullName>Saving up money/waiting for tax return</fullName>
+                <default>false</default>
+                <label>Saving up money/waiting for tax return</label>
+            </value>
+            <value>
+                <fullName>Service not offered</fullName>
+                <default>false</default>
+                <label>Service not offered</label>
+            </value>
+            <value>
+                <fullName>Service too expensive</fullName>
+                <default>false</default>
+                <label>Service too expensive</label>
+            </value>
+            <value>
+                <fullName>Other [please add note]</fullName>
+                <default>false</default>
+                <label>Other [please add note]</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

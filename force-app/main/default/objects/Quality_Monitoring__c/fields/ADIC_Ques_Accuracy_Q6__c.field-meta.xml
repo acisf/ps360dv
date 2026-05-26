@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ADIC_Ques_Accuracy_Q6__c</fullName>
+    <defaultValue>&quot;Properly linked call and placed appointment in the correct column&quot;</defaultValue>
+    <label>Q6</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

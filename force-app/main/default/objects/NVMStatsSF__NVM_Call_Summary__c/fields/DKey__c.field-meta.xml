@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DKey__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>NVM &quot;fix&quot; to duplicate call summaries (oct 4 2018)</description>
+    <externalId>false</externalId>
+    <label>DKey</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

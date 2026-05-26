@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FB_Current_Treatments__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Do you currently use any of the following treatments?</inlineHelpText>
+    <label>FB Current Treatments</label>
+    <length>50</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

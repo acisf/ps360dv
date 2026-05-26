@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>First_Appointment_Date__c</fullName>
+    <description>First appointment date detected, by new_appt event. Will be erased if a cancelled_appt or deleted_appt event follows. Will be updated if a rescheduled event follows with the same id in First Appt Id</description>
+    <label>First Appointment Date</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

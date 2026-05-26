@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>Migrated from the: Update Unique Id workflow rule
+Workflow rule description: &quot;</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>Update_Practice_Info_Unique_IdFormula</name>
+        <dataType>String</dataType>
+        <expression>$Record.Practice__c  +  &apos;-&apos; + $Record.Case__r.ContactId + &apos;-&apos; +  SUBSTITUTE(TEXT( DATEVALUE( $Record.CreatedDate ) ), &apos;-&apos;, &apos;&apos;)</expression>
+    </formulas>
+    <interviewLabel>Update Unique Id - after save {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Practice Info Request - after save</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>mainUpdate</name>
+        <label>mainUpdate</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <inputAssignments>
+            <field>Unique_Key__c</field>
+            <value>
+                <elementReference>Update_Practice_Info_Unique_IdFormula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>mainUpdate</targetReference>
+        </connector>
+        <object>Practice_Info_Request__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+</Flow>

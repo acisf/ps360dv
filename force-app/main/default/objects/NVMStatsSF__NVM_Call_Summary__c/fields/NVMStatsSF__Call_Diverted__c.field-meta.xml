@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NVMStatsSF__Call_Diverted__c</fullName>
+    <defaultValue>false</defaultValue>
+    <deprecated>false</deprecated>
+    <inlineHelpText>True if a Call Divert or Call Connect Router (CCR) was used</inlineHelpText>
+    <label>Call Diverted</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

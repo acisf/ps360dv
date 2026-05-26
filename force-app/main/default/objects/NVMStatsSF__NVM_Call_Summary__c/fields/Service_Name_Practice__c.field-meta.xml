@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Service_Name_Practice__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF (CONTAINS(NVMStatsSF__NVM_Service_Name__c,&quot;West St Paul&quot;),&quot;West St Paul&quot;,
+IF (CONTAINS(NVMStatsSF__NVM_Service_Name__c,&quot;HattiesburgMS ACI Internet&quot;),&quot;Hattiesburg&quot;,
+IF (LEN(MID(
+    NVMStatsSF__NVM_Service_Name__c,
+    FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c),
+    FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c, FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c)+1) - FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c)
+    )) = 3 , LEFT(
+    NVMStatsSF__NVM_Service_Name__c,
+    FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c)
+    ), IF (LEN(MID(
+    NVMStatsSF__NVM_Service_Name__c,
+    FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c, FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c)+1),
+    FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c,
+    FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c, 
+    FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c)+1)+1) - FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c,
+    FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c)+1)
+    )) = 3 , LEFT(
+    NVMStatsSF__NVM_Service_Name__c,
+    FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c,
+    FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c)+1)
+)  , 
+    
+    IF (LEN(
+        MID(NVMStatsSF__NVM_Service_Name__c,
+        FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c,
+        FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c, 
+        FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c)+1)+1),
+        FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c,
+        FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c, 
+        FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c,
+        FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c)+1)+1)+1) - FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c,
+        FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c, 
+        FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c)+1)+1))
+    ) = 3 , LEFT(
+    NVMStatsSF__NVM_Service_Name__c,
+    FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c,
+    FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c, 
+    FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c)+1)+1)
+), NVMStatsSF__NVM_Service_Name__c)))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Service Name Practice</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

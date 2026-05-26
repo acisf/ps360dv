@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Interval_Minute__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(MINUTE(TIMEVALUE(NVMStatsSF__CallTime__c)) &gt;= 00 &amp;&amp; MINUTE(TIMEVALUE(NVMStatsSF__CallTime__c)) &lt; 15, &quot;:00:00.000&quot;,
+IF(MINUTE(TIMEVALUE(NVMStatsSF__CallTime__c)) &gt;= 15 &amp;&amp; MINUTE(TIMEVALUE(NVMStatsSF__CallTime__c)) &lt; 30, &quot;:15:00.000&quot;, IF(MINUTE(TIMEVALUE(NVMStatsSF__CallTime__c)) &gt;= 30 &amp;&amp; MINUTE(TIMEVALUE(NVMStatsSF__CallTime__c)) &lt; 45, &quot;:30:00.000&quot;, IF(MINUTE(TIMEVALUE(NVMStatsSF__CallTime__c)) &gt;= 45 &amp;&amp; MINUTE(TIMEVALUE(NVMStatsSF__CallTime__c)) &lt; 60, &quot;:45:00.000&quot;, &quot;Unknown&quot;))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Interval_Minute</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Protel_Summaries</fullName>
+    <columns>NAME</columns>
+    <columns>NVMStatsSF__Agent__c</columns>
+    <columns>NVMStatsSF__Call_Recording__c</columns>
+    <columns>NVMStatsSF__CallDisposition__c</columns>
+    <columns>NVMStatsSF__CallTime__c</columns>
+    <columns>NVMStatsSF__EndReason__c</columns>
+    <columns>NVMStatsSF__Handle_Time__c</columns>
+    <columns>NVMStatsSF__Related_Contact__c</columns>
+    <columns>NVMStatsSF__Related_To__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>Protel Summaries</label>
+    <sharedTo>
+        <group>Protel_Report_Viewers</group>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Send_Email_to_Salesforce_Help</name>
+        <label>Send Email to Salesforce Help</label>
+        <locationX>469</locationX>
+        <locationY>230</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>Last_Screen</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>Desc</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <stringValue>salesforcehelp@affordablecare.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <elementReference>$User.Email</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>Subj</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+    </actionCalls>
+    <apiVersion>51.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <formulas>
+        <name>Desc</name>
+        <dataType>String</dataType>
+        <expression>&apos;A contact update request has been raised for case number &apos; + {!Get_case_details.CaseNumber} + &apos; by &apos; + {!$User.FirstName} +&apos; &apos; + {!$User.LastName} + &apos;. The contact details are: &apos; + BR() + 
+&apos;Contact Id: &apos; + {!Get_case_details.ContactId} +BR() +
+&apos;Contact Name: &apos; + {!Get_case_details.Contact.FirstName} + &apos; &apos; + {!Get_case_details.Contact.LastName} + BR() + BR() +
+&apos;The details to be updated are: &apos; + BR()+
+{!Contact_Details}</expression>
+    </formulas>
+    <formulas>
+        <name>Subj</name>
+        <dataType>String</dataType>
+        <expression>&apos;Contact Update for Case &apos; + {!Get_case_details.CaseNumber}</expression>
+    </formulas>
+    <interviewLabel>Contact Update Details {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Contact Update Details</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordLookups>
+        <name>Get_case_details</name>
+        <label>Get case details</label>
+        <locationX>176</locationX>
+        <locationY>226</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>contact_update</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Case</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <screens>
+        <name>contact_update</name>
+        <label>Contact Update</label>
+        <locationX>332</locationX>
+        <locationY>229</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Send_Email_to_Salesforce_Help</targetReference>
+        </connector>
+        <fields>
+            <name>update_header</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(62, 62, 60);&quot;&gt;Update &lt;/span&gt;Contact for Case {!Get_case_details.CaseNumber}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Contact_Details</name>
+            <fieldText>What needs to be updated about this contact?</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <helpText>&lt;p&gt;For example: &quot;Please add an email address for this contact.&quot;&lt;/p&gt;</helpText>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>Last_Screen</name>
+        <label>Last Screen</label>
+        <locationX>625</locationX>
+        <locationY>234</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Final_Screen</name>
+            <fieldText>&lt;p&gt;Thank you for submitting your request! A case has been raised for the Salesforce Team.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>false</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Get_case_details</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

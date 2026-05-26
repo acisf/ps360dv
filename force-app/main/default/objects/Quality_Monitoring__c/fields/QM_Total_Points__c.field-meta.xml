@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QM_Total_Points__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF ( RecordType.Name = &quot;ADIC&quot;,
+
+BLANKVALUE(ADIC_Total_Call_Opening__c, 0) + BLANKVALUE(ADIC_Total_Understand_Confirm_Needs__c, 0)+ BLANKVALUE(ADIC_Total_Collecting__c, 0)+ BLANKVALUE(ADIC_Total_Accuracy__c, 0),
+
+BLANKVALUE(Call_Opening_Total__c, 0) + BLANKVALUE(Understand_Confirm_Needs_Total__c, 0)+ BLANKVALUE(Social_Promo_Total__c, 0)+ BLANKVALUE(Responding_Total__c, 0)+ BLANKVALUE(Collecting_Total__c, 0)+ BLANKVALUE(Accuracy_Total__c, 0)+ BLANKVALUE(ClosingCall_Total__c, 0)
+
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>QM Total Points</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

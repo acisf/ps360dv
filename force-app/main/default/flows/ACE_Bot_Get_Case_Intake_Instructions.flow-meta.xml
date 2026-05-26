@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>67.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>Gets the intake instructions for special cases, such as required fields</description>
+    <environments>Default</environments>
+    <interviewLabel>ACE Bot - Get Case Intake Instructions {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>ACE Bot - Get Case Intake Instructions</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Case_Instructions</name>
+        <label>Get Case Instructions</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Team__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>team</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Category__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>category</elementReference>
+            </value>
+        </filters>
+        <object>CaseIntakeInstruction__c</object>
+        <outputAssignments>
+            <assignToReference>prompt</assignToReference>
+            <field>Prompt__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>required_fields</assignToReference>
+            <field>RequiredFields__c</field>
+        </outputAssignments>
+    </recordLookups>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Case_Instructions</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>The category of the case</description>
+        <name>category</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Instructions on how to intake the case</description>
+        <name>prompt</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>The fields required to intake the case</description>
+        <name>required_fields</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>The team the case should be routed to</description>
+        <name>team</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Call_Result_Subcategory__c</fullName>
+    <description>Call Result Subcategory value copied from the Call Task if one was found</description>
+    <inlineHelpText>Call Result Subcategory value copied from the Call Task if one was found</inlineHelpText>
+    <label>Call Result Subcategory</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New Denture</fullName>
+                <default>false</default>
+                <label>New Denture (Patient is new to wearing dentures)</label>
+            </value>
+            <value>
+                <fullName>Replacement Denture</fullName>
+                <default>false</default>
+                <label>Replacement Denture (Patient is a current denture wearer)</label>
+            </value>
+            <value>
+                <fullName>Partial Denture</fullName>
+                <default>false</default>
+                <label>Partial Denture</label>
+            </value>
+            <value>
+                <fullName>Implant Supported Denture</fullName>
+                <default>false</default>
+                <label>Implant Supported Denture</label>
+            </value>
+            <value>
+                <fullName>All-In-One</fullName>
+                <default>false</default>
+                <label>All-In-One</label>
+            </value>
+            <value>
+                <fullName>Single Tooth Implant</fullName>
+                <default>false</default>
+                <label>Single Tooth Implant</label>
+            </value>
+            <value>
+                <fullName>Extraction Only</fullName>
+                <default>false</default>
+                <label>Extraction Only</label>
+            </value>
+            <value>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+                <label>Insurance</label>
+            </value>
+            <value>
+                <fullName>Repair</fullName>
+                <default>false</default>
+                <label>Repair</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CLID__c</fullName>
+    <description>Calling line identification</description>
+    <label>CLID</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Phone</type>
+</CustomField>

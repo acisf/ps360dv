@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case_00154444__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Categories manually updated. NVM Case 00154444</description>
+    <label>Case 00154444</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

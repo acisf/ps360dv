@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FB_Practice_Tracking_Line__c</fullName>
+    <externalId>false</externalId>
+    <formula>If(FB_Practice__r.Facebook_Tracking_Line__c != null, FB_Practice__r.Facebook_Tracking_Line__c, &quot;(800) 806-5962&quot;)</formula>
+    <label>FB Practice Tracking Line</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

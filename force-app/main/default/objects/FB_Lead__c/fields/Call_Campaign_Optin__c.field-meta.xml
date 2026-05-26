@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Call_Campaign_Optin__c</fullName>
+    <formula>FB_Practice__r.FB_Call_Campaign_Opt_In__c</formula>
+    <label>Call Campaign Optin</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

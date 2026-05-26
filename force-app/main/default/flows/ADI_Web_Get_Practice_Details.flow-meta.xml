@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>67.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>Get details about the practice such as payments accepted, insurance accepted, hours of operation, services provided, driving directions, web link, and Google Maps link.</description>
+    <environments>Default</environments>
+    <interviewLabel>ADI Web - Get Practice Details {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>ADI Web - Get Practice Details</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Get the practice corresponding to the id</description>
+        <name>Get_Practice</name>
+        <label>Get Practice</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>practiceId</elementReference>
+            </value>
+        </filters>
+        <object>Account</object>
+        <outputAssignments>
+            <assignToReference>drivingDirections</assignToReference>
+            <field>Driving_Directions__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>insuranceAccepted</assignToReference>
+            <field>Insurance_Accepted__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>jarvis</assignToReference>
+            <field>Jarvis__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>googleMapsLink</assignToReference>
+            <field>Link_to_Google_Maps__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>medicaidAccepted</assignToReference>
+            <field>Medicaid_Type__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>hoursOfOperation</assignToReference>
+            <field>Office_Hours__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>paymentsAccepted</assignToReference>
+            <field>Payment_Methods__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>phone</assignToReference>
+            <field>Phone</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>servicesProvided</assignToReference>
+            <field>Service_Codes__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>webApptLink</assignToReference>
+            <field>Web_Appointment_Link__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>webLink</assignToReference>
+            <field>Website</field>
+        </outputAssignments>
+    </recordLookups>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Practice</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>Driving directions to the practice/clinic location</description>
+        <name>drivingDirections</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>Link to Google Maps of the practice location.</description>
+        <name>googleMapsLink</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>The hours of operation of the practice/clinic location</description>
+        <name>hoursOfOperation</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>The insurance carriers accepted at the practice/clinic location</description>
+        <name>insuranceAccepted</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>Whether or not the practice is on Jarvis, the online scheduling system</description>
+        <name>jarvis</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>The types of Medicaid accepted at the practice/clinic location</description>
+        <name>medicaidAccepted</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>The payment methods accepted by the practice/clinic location</description>
+        <name>paymentsAccepted</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>The practice phone - only give to users if there is no online scheduler.</description>
+        <name>phone</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>The selected clinic id</description>
+        <name>practiceId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Services provided at the practice/clinic location</description>
+        <name>servicesProvided</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>The link to schedule online. Returns &quot;None&quot; if the practice is not on Jarvis, the online scheduler.</description>
+        <name>webApptLink</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>Website URL to the practice/clinic location website.</description>
+        <name>webLink</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>64.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <customProperties>
+        <name>ScreenProgressIndicator</name>
+        <value>
+            <stringValue>{&quot;location&quot;:&quot;top&quot;,&quot;type&quot;:&quot;simple&quot;}</stringValue>
+        </value>
+    </customProperties>
+    <decisions>
+        <name>Script_Type_Var</name>
+        <label>Script Type</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Voicemail_Script</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Voicemail</defaultConnectorLabel>
+        <rules>
+            <name>LIveAnswer</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Script_Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>LiveAnswer</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Welcome_Call</targetReference>
+            </connector>
+            <label>LIveAnswer</label>
+        </rules>
+    </decisions>
+    <description>10/16/25 updated wrap up script
+Updated Wrap Up Script
+Updated values and removed footer
+Removed call scripts and replaced with display text
+Added scripts</description>
+    <environments>Default</environments>
+    <interviewLabel>Welcome Call {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Welcome Call</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordLookups>
+        <name>Get_Case</name>
+        <label>Get Case</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Script_Type_Var</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Case</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <screens>
+        <name>Voicemail_Script</name>
+        <label>Voicemail Script</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>Copy_1_of_Introd</name>
+            <fieldText>&lt;p&gt;🔊 &lt;strong style=&quot;font-size: 18px;&quot;&gt;Voicemail&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;{!Voicemail}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>false</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>Welcome_Call</name>
+        <label>Welcome Call</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>Introd</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;👋&lt;/span&gt;&lt;strong style=&quot;font-size: 18px;&quot;&gt;Introduction&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt; &lt;/span&gt;{!Welcome_Call_Intro}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Appt_Date_Time_Confirmation</name>
+            <fieldText>&lt;p&gt;🗓️&lt;strong style=&quot;font-size: 18px;&quot;&gt;Appointment Date and Time Confirmation&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp;{!Appt_Date_Time_Confirm}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Service_Confirma</name>
+            <fieldText>&lt;p&gt;🦷 &lt;strong style=&quot;font-size: 18px;&quot;&gt;Services Confirmation&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp;{!Services_Confirm}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Insurance_Confirm</name>
+            <fieldText>&lt;p&gt;📄&lt;strong style=&quot;font-size: 18px;&quot;&gt;Insurance Confirmation&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp;{!Insurance_Confirmation}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Budget_Comfirmation</name>
+            <fieldText>&lt;p&gt;💰&lt;strong style=&quot;font-size: 18px;&quot;&gt;Budget Confirmation&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp;{!Budget_Confirm}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Wrap_Up_Call1</name>
+            <fieldText>&lt;p&gt;✅&lt;strong style=&quot;font-size: 18px;&quot;&gt;Wrap Up&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;{!Wrap_Up}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>false</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Case</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>Appt_Date_Time_Confirm</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;“Mrs./Mr. {!Get_Case.Patients_Last_Name__c}, I am giving you a call to make sure you are all set for your upcoming appointment at our &lt;/span&gt;&lt;strong style=&quot;font-size: 18px;&quot;&gt;{!Get_Case.Account.Name}&lt;/strong&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt; practice. I am showing that your appointment is &lt;/span&gt;&lt;strong style=&quot;font-size: 18px;&quot;&gt;{!Get_Case.AppointmentDateTime__c}&lt;/strong&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;. Is that correct?”&amp;nbsp;&lt;/span&gt;&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Budget_Confirm</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;“We offer treatment plans to fit everyone’s needs and budgets. Do you have a budget in mind?&amp;nbsp;I can note this and add details such as being interested in financing…”&amp;nbsp;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;“Awesome, I have noted this on your appointment. Mrs./Mr. {!Get_Case.Patients_Last_Name__c}, please bring anyone with you that can support you while you make your financial and medical decisions.”&amp;nbsp;&lt;/span&gt;&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Insurance_Confirmation</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;“We are almost finished prepping you for your appointment Mr./Mrs. {!Get_Case.Patients_Last_Name__c}. For insurance, I am showing that you have...&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;[&lt;/span&gt;&lt;em style=&quot;font-size: 18px;&quot;&gt;AGENT: In Dentrix, confirm insurance details]&lt;/em&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;Insurance Provider: &lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;Subscriber Name and DOB: &lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;Relationship to Subscriber (if applicable): &lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;Subscriber ID # - Member ID #: &lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;Subscriber Employer: &lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;Group Number:&quot;&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Services_Confirm</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;“I am showing that you would like to speak to the &lt;/span&gt;&lt;strong style=&quot;font-size: 18px;&quot;&gt;{!Get_Case.Account.Name}&lt;/strong&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt; team about...&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;[&lt;/span&gt;&lt;em style=&quot;font-size: 18px;&quot;&gt;AGENT: From Dentrix, list services, and update if needed&lt;/em&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;]. &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;Please bring in a list of your allergies, OTC and prescribed medications. Is there anything else you would like me to notate?&lt;/span&gt;&lt;strong style=&quot;font-size: 18px;&quot;&gt;”&lt;/strong&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>TestBody</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Hello, this is {!$User.FirstName}&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Voicemail</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 18px;&quot;&gt;“Hi! This is {!$User.FirstName} from Affordable Dentures and Implants &lt;/span&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 18px; color: rgb(36, 36, 36); font-family: Aptos, sans-serif;&quot;&gt;calling regarding your appointment at our {!Get_Case.Account.Name} practice. Please give us a call back today at&amp;nbsp;&lt;/span&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255); font-size: 18px; color: rgb(36, 36, 36); font-family: Aptos, sans-serif;&quot;&gt;1-&lt;/strong&gt;&lt;strong style=&quot;font-size: 18px;&quot;&gt;866-807-0197&lt;/strong&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;. We &lt;/span&gt;&lt;span style=&quot;font-size: 18px; background-color: rgb(255, 255, 255); color: rgb(36, 36, 36); font-family: Aptos, sans-serif;&quot;&gt;are open from 7:00am-9:00pm Eastern Time.&lt;/span&gt;&lt;strong style=&quot;font-size: 18px; background-color: rgb(255, 255, 255); color: rgb(36, 36, 36); font-family: Aptos, sans-serif;&quot;&gt;&amp;nbsp;&lt;/strong&gt;&lt;span style=&quot;font-size: 18px; background-color: rgb(255, 255, 255); color: rgb(36, 36, 36); font-family: Aptos, sans-serif;&quot;&gt;Thank you!&lt;/span&gt;&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Welcome_Call_Intro</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;“Hi! This is &lt;/span&gt;&lt;span style=&quot;font-size: 18px; background-color: rgb(255, 255, 255);&quot;&gt;{!$User.FirstName}&lt;/span&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt; from Affordable Dentures and Implants. May I speak to Mrs./Mr. {!Get_Case.Patients_Last_Name__c}?”&lt;/span&gt;&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Wrap_Up</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;﻿“I appreciate your time today, Mr./Mrs. {!Get_Case.Patients_Last_Name__c}.&amp;nbsp;Have you completed your new patient paperwork?&quot;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;[&lt;/span&gt;&lt;em style=&quot;font-size: 18px;&quot;&gt;Agent: If they have not completed new patient paperwork&lt;/em&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;]  &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;&quot;I will send your new patient paperwork; would you prefer it via email or text? Your new patient paperwork will ask you to confirm your insurance again to ensure you are all set for your appointment. We ask that paperwork is completed prior to your appointment date. This information is needed before you are seen in office.”&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;“If you have any questions, please give us a call at 1-800-denture. Is there anything else I can note on your appointment for you?”&amp;nbsp;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;“Thank you for choosing Affordable Dentures and Implants. Have an amazing day!”&lt;/span&gt;&lt;/p&gt;</text>
+    </textTemplates>
+    <variables>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Script_Type</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>LiveAnswer</stringValue>
+        </value>
+    </variables>
+</Flow>

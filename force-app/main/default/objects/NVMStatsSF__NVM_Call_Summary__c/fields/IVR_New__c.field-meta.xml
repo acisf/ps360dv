@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IVR_New__c</fullName>
+    <description>Caller pressed:
+1 - Schedule a new appt
+2 - Confirm, cancel or reschedule
+3 - Directions
+4 - All other questions</description>
+    <inlineHelpText>Caller pressed:
+1 - Schedule a new appt
+2 - Confirm, cancel or reschedule
+3 - Directions
+4 - All other questions</inlineHelpText>
+    <label>IVR New</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Schedule</fullName>
+                <default>false</default>
+                <label>Schedule</label>
+            </value>
+            <value>
+                <fullName>Modify</fullName>
+                <default>false</default>
+                <label>Modify</label>
+            </value>
+            <value>
+                <fullName>Directions</fullName>
+                <default>false</default>
+                <label>Directions</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

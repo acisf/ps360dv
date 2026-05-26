@@ -1,0 +1,30 @@
+@isTest
+public class ScheduleCallSummaryUpdateBackfillTest {
+    
+    static testmethod void test() {
+        Test.startTest();     
+        // Schedule the test job
+        String jobId = System.schedule('Call Summary Update Backfill Queue Test','0 0 13 1/1 * ? *',new ScheduleCallSummaryUpdateBackfillQ12025());
+        // Get the information from the CronTrigger API object
+        CronTrigger ct = [SELECT Id, CronExpression, TimesTriggered, 
+                          NextFireTime
+                          FROM CronTrigger WHERE id = :jobId];
+        
+        // Verify the expressions are the same
+        System.assertEquals( '0 0 13 1/1 * ? *', ct.CronExpression);
+        
+        // Verify the job has not run
+        System.assertEquals(0, ct.TimesTriggered);
+        
+        // Verify the next time the job will run
+        DateTime dt;
+        if(datetime.now().hour() < 13) {
+            dt = DateTime.newInstance(Date.today(),Time.newInstance(13,0,0,0));
+        }
+        else {
+            dt = DateTime.newInstance(Date.today() + 1,Time.newInstance(13,0,0,0));
+        }
+        System.assertEquals( dt, ct.NextFireTime);
+        Test.stopTest();
+    }
+}

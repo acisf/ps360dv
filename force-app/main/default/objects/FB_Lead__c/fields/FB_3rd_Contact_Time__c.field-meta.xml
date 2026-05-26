@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FB_3rd_Contact_Time__c</fullName>
+    <description>3rd time the lead was contacted.</description>
+    <label>FB 3rd Contact Time</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Service_Name_MarketingType__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF (CONTAINS(NVMStatsSF__NVM_Service_Name__c,&quot;West St Paul&quot;),MID(NVMStatsSF__NVM_Service_Name__c,FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c,
+    FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c, 
+    FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c,
+    FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c)+1)+1)+1),100),
+IF (CONTAINS(NVMStatsSF__NVM_Service_Name__c,&quot;HattiesburgMS ACI Internet&quot;),MID(NVMStatsSF__NVM_Service_Name__c,FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c,
+    FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c, 
+    FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c,
+    FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c)))),100),
+IF (LEN(MID(
+    NVMStatsSF__NVM_Service_Name__c,
+    FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c),
+    FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c, FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c)+1) - FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c)
+    )) = 3 , MID(NVMStatsSF__NVM_Service_Name__c,FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c,
+    FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c)+1),100), IF (LEN(MID(
+    NVMStatsSF__NVM_Service_Name__c,
+    FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c, FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c)+1),
+    FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c,
+    FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c, 
+    FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c)+1)+1) - FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c,
+    FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c)+1)
+    )) = 3 , MID(NVMStatsSF__NVM_Service_Name__c,FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c,
+    FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c, 
+    FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c)+1)+1),100), 
+    
+    IF (LEN(
+        MID(NVMStatsSF__NVM_Service_Name__c,
+        FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c,
+        FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c, 
+        FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c)+1)+1),
+        FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c,
+        FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c, 
+        FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c,
+        FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c)+1)+1)+1) - FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c,
+        FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c, 
+        FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c)+1)+1))
+    ) = 3 , MID(NVMStatsSF__NVM_Service_Name__c,FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c,
+    FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c, 
+    FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c,
+    FIND(&quot; &quot;, NVMStatsSF__NVM_Service_Name__c)+1)+1)+1),100), NVMStatsSF__NVM_Service_Name__c)))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Service Name Marketing Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

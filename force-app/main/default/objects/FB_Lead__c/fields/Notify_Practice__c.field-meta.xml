@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Notify_Practice__c</fullName>
+    <formula>FB_Practice__r.FB_Notify_Practice__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Notify Practice</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -50,10 +50,12 @@ private class TreatmentFinderLeadNotifierTest {
             LastName = 'Patient',
             Email = 'test.patient@example.com',
             Company = 'Test Company',
-            Location_Id__c = '15210',
+            Location_Id__c = '11340',
             RecordTypeId = rtId,
             TF_JSON__c = tfJson,
-            Lead_Notification_Sent_Date__c = null
+            Lead_Notification_Sent_Date__c = null,
+            CreatedDate = DateTime.now() - 1,
+            First_Appt_Date__c = NULL
         );
         insert l;
 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Facebook_Leads_From_Messenger</fullName>
+    <columns>NAME</columns>
+    <columns>FB_Campaign_Name__c</columns>
+    <columns>Lead__c</columns>
+    <columns>ArchieBot_Total_Score__c</columns>
+    <columns>FB_Ad_Name__c</columns>
+    <columns>FB_Practice__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>FB_Campaign_Name__c</field>
+        <operation>equals</operation>
+        <value>Messenger</value>
+    </filters>
+    <label>Facebook Leads From Messenger</label>
+    <sharedTo>
+        <group>Marketing</group>
+        <group>System_Admins</group>
+    </sharedTo>
+</ListView>

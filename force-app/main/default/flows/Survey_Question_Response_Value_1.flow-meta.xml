@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>Migrated from the Survey Question Response Value process using Response Exists criteria.
+Survey Question Response Value</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>formula_update_response_value</name>
+        <dataType>Number</dataType>
+        <expression>IF(isnumber(LEFT({!$Record.Response__c} ,1)),
+value(LEFT({!$Record.Response__c} ,1)),
+If({!$Record.Response__c} = &apos;Yes&apos;,1,0))</expression>
+        <scale>18</scale>
+    </formulas>
+    <interviewLabel>Survey Question Response Value- after save {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Survey Question Response Value- after save</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Response_Value</name>
+        <label>Update Response Value</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <inputAssignments>
+            <field>Response_Value__c</field>
+            <value>
+                <elementReference>formula_update_response_value</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_Response_Value</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Response__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>SurveyQuestionResponse__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

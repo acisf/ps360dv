@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FB_Practice_Optin__c</fullName>
+    <description>Practice has opted into Facebook Lead Gen emails</description>
+    <formula>FB_Practice__r.FB_Lead_Optin__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>FB Practice Optin</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FB_Status__c</fullName>
+    <description>Status of the lead: &apos;Email&apos; (queued for email campaign) &apos;Call Center&apos; (queued for call campaign) or &apos;Scheduled&apos;</description>
+    <externalId>false</externalId>
+    <label>FB Status</label>
+    <length>11</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ADIC_Total_Call_Opening__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( ISPICKVAL(ADIC_Ans_Call_Opening_P1__c, &apos;No&apos;), 0, 4) +
+IF( ISPICKVAL(ADIC_Ans_Call_Opening_P2__c, &apos;No&apos;), 0, 4) +
+IF( ISPICKVAL(ADIC_Ans_Call_Opening_P3__c, &apos;No&apos;), 0, 4) +
+IF( ISPICKVAL(ADIC_Ans_Call_Opening_P4__c, &apos;No&apos;), 0, 4)</formula>
+    <label>Total</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

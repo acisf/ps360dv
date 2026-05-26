@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FB_Routing__c</fullName>
+    <label>FB Routing</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Call Center</fullName>
+                <default>false</default>
+                <label>Call Center</label>
+            </value>
+            <value>
+                <fullName>Email</fullName>
+                <default>false</default>
+                <label>Email</label>
+            </value>
+            <value>
+                <fullName>Practice</fullName>
+                <default>false</default>
+                <label>Practice</label>
+            </value>
+            <value>
+                <fullName>Practice + Email</fullName>
+                <default>false</default>
+                <label>Practice + Email</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

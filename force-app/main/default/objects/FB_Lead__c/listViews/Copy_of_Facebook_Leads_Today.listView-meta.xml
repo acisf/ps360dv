@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Copy_of_Facebook_Leads_Today</fullName>
+    <columns>NAME</columns>
+    <columns>FB_Form__c</columns>
+    <columns>FB_Practice__c</columns>
+    <columns>FB_Practice_Id__c</columns>
+    <columns>Notify_Practice__c</columns>
+    <columns>Px_Email_Campaign_Optin__c</columns>
+    <columns>FB_Contact__c</columns>
+    <columns>FB_Email__c</columns>
+    <columns>FB_Phone__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>FB_Message_Id__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CREATED_DATE</field>
+        <operation>equals</operation>
+        <value>THIS_MONTH</value>
+    </filters>
+    <label>Facebook Leads This Month</label>
+    <sharedTo>
+        <group>Marketing</group>
+        <group>System_Admins</group>
+    </sharedTo>
+</ListView>
